@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>RSVP · Game Nite Lounge</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-root="../" data-page="rsvp">
+<div role="note" style="background:#141414;color:#ffc61a;font:500 12px/1.5 'DM Mono',monospace;letter-spacing:.06em;text-align:center;padding:9px 16px;text-transform:uppercase">Concept prototype for discussion · not the official Game Nite Lounge website · booking, payments and forms are simulated and nothing is sent · <a href="../otc-plan/" style="color:#fff">How the Off the Couch integration works</a></div>
+<main>
+<section class="hero">
+  <div class="wrap grid" style="align-items:start">
+    <div>
+      <span class="label kicker">You're invited</span>
+      <h1 class="mega"><span class="line" id="rsvpCo">Your team</span><span class="line">game</span><span class="line" data-coins>Nite</span></h1>
+      <div class="event-card" id="rsvpCard" style="margin-top:10px"><span class="label">The plan</span><div class="big">Private lounges, games &amp; food</div><dl></dl></div>
+      <p class="small" style="margin-top:18px">No experience needed. Every game explains itself on screen. <a href="../games/index.html">Peek at the game menu</a></p>
+    </div>
+    <form class="form" id="rsvpForm" data-endpoint="EVENTS_ENDPOINT" data-success="Thanks, you're on the list. See you there.">
+      <h3>RSVP</h3>
+      <p>This takes 30 seconds. Your organizer sees the headcount, and the kitchen sees your dietary needs.</p>
+      <div class="fields">
+        <div><label for="r-name">Your name</label><input id="r-name" name="name" autocomplete="name" required></div>
+        <div><label for="r-email">Email</label><input id="r-email" name="email" type="email" autocomplete="email"></div>
+        <fieldset class="full"><legend>Are you coming?</legend>
+          <div class="chips-in"><label><input type="radio" name="attending" value="yes" required>I'm in</label><label><input type="radio" name="attending" value="maybe">Maybe</label><label><input type="radio" name="attending" value="no">Can't make it</label></div>
+        </fieldset>
+        <fieldset class="full"><legend>Dietary needs</legend>
+          <div class="chips-in">
+            <label><input type="checkbox" name="diet" value="vegetarian">Vegetarian</label>
+            <label><input type="checkbox" name="diet" value="vegan">Vegan</label>
+            <label><input type="checkbox" name="diet" value="gluten-free">Gluten-free</label>
+            <label><input type="checkbox" name="diet" value="dairy-free">Dairy-free</label>
+            <label><input type="checkbox" name="diet" value="halal">Halal</label>
+            <label><input type="checkbox" name="diet" value="kosher">Kosher</label>
+          </div>
+        </fieldset>
+        <div class="full"><label for="r-allergy">Allergies we should know about</label><input id="r-allergy" name="allergies" placeholder="e.g. tree nuts, shellfish"></div>
+        <fieldset class="full"><legend>Drink preference</legend>
+          <div class="chips-in"><label><input type="radio" name="drink" value="zero-proof">Zero-proof</label><label><input type="radio" name="drink" value="beer-wine">Beer or wine</label><label><input type="radio" name="drink" value="either">Either</label></div>
+        </fieldset>
+        <div class="full"><label for="r-access">Accessibility needs (optional)</label><input id="r-access" name="accessibility"></div>
+      </div>
+      <button class="btn go" type="submit">Send my RSVP</button>
+      <div class="form-ok" role="status" aria-live="polite"></div>
+      <p class="small" style="margin-top:12px">Only the event organizer and our team see your answers. <span class="tbd" title="With Off the Couch, this can become the per-guest waiver + custom fields, so one link covers RSVP, dietary needs and the waiver.">OTC waiver?</span></p>
+    </form>
+  </div>
+</section>
+</main>
+<script src="../assets/demo-api.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

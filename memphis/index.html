@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Game Nite Lounge Memphis</title>
+<meta name="description" content="Private game-show lounges for 2–8 players at 22 S. Cooper Street, Memphis. Sessions from $27.99 per person. Open daily.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"EntertainmentBusiness","name":"Game Nite Lounge Memphis","telephone":"+1-901-305-8080","email":"memphis@gamenitelounge.com","address":{"@type":"PostalAddress","streetAddress":"22 S. Cooper Street","addressLocality":"Memphis","addressRegion":"TN","postalCode":"38104","addressCountry":"US"},"priceRange":"$27.99–$54.99 per person","makesOffer":[{"@type":"Offer","name":"1 Hour Session","price":"27.99","priceCurrency":"USD"},{"@type":"Offer","name":"2 Hour Session","price":"41.99","priceCurrency":"USD"},{"@type":"Offer","name":"3 Hour Session","price":"54.99","priceCurrency":"USD"}]}
+</script>
+</head>
+<body data-root="../" data-page="memphis">
+<div role="note" style="background:#141414;color:#ffc61a;font:500 12px/1.5 'DM Mono',monospace;letter-spacing:.06em;text-align:center;padding:9px 16px;text-transform:uppercase">Concept prototype for discussion · not the official Game Nite Lounge website · booking, payments and forms are simulated and nothing is sent · <a href="../otc-plan/" style="color:#fff">How the Off the Couch integration works</a></div>
+<main>
+
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="label kicker">Private game-show lounges · Cooper-Young, Memphis</span>
+      <h1 class="mega">
+        <span class="line">Welcome to</span>
+        <span class="line" data-coins>Game Nite</span>
+        <span class="line">Memphis <span class="sticker">Open daily</span></span>
+      </h1>
+      <p class="lede">Ten themed private lounges, more than 70 original games and one coffee table that keeps score. Bring 2–8 people. Pizza is a tap away.</p>
+      <div class="btn-row">
+        <a href="#rates" class="btn go">Book a lounge</a>
+        <a href="../events/index.html" class="btn">Groups of 9+ →</a>
+      </div>
+      <p style="margin-top:22px"><a data-rating-pill></a></p>
+    </div>
+    <figure class="ph" style="aspect-ratio:4/3;border-radius:16px;box-shadow:8px 8px 0 var(--purple)">
+      <img src="https://gamenitelounge.com/wp-content/uploads/2025/06/trailerbackup.jpg" alt="A family cheering in a mural-painted lounge">
+      <figcaption>One of 10 themed lounges</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+<section class="band">
+  <div class="wrap"><div class="boxes b4">
+    <div class="box-hl" style="display:flex;align-items:center"><div class="big" style="font-size:34px">Hours &amp;<br>location</div></div>
+    <div><span class="label">Address</span><div class="big" style="font-size:22px">22 S. Cooper St<br>Memphis, TN 38104</div><p class="small" style="margin-top:6px"><a href="https://maps.google.com/?q=22+S+Cooper+St+Memphis+TN+38104">Get directions</a></p></div>
+    <div><span class="label">Hours</span><div class="big" style="font-size:22px">Open daily<br>from 10 AM</div><p class="small" style="margin-top:6px">Morning rate 10 AM–2 PM <span class="tbd" title="Add closing time.">add close</span></p></div>
+    <div><span class="label">Call us</span><div class="big" style="font-size:22px"><a href="tel:+19013058080">901-305-8080</a></div><p class="small" style="margin-top:6px"><a href="mailto:memphis@gamenitelounge.com">memphis@gamenitelounge.com</a></p></div>
+  </div></div>
+</section>
+
+<section class="pad band" id="rates">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="label">Our rates</span><h2 class="h2 xl">Per person.<br>Lounge included.</h2></div>
+      <p class="small" style="max-width:380px">Every booking gets you a private lounge. Pay a two-ticket deposit to hold it, and everyone else pays at the door. Kids 5 and under get in free, but they need a ticket to play.</p>
+    </div>
+    <div class="availability" data-availability="memphis" hidden></div>
+    <div class="rates" id="rateBoxes"></div>
+
+    <div class="calc" id="calc" data-loc="memphis">
+      <div class="in">
+        <span class="label" style="display:block;margin-bottom:6px">Price estimator</span>
+        <h3 class="h3" style="font-size:30px;text-transform:uppercase;font-weight:900;margin-bottom:26px">What will it cost?</h3>
+        <div class="row"><span class="label" id="lblP">Players <output id="oPlayers">4</output></span><div class="pick" id="pickPlayers" role="group" aria-labelledby="lblP"></div></div>
+        <div class="row"><span class="label" id="lblL">Session <output id="oLen">2 hours</output></span>
+          <div class="pick three" id="pickLen" role="group" aria-labelledby="lblL"><button data-len="1">1 hour</button><button data-len="2">2 hours</button><button data-len="3">3 hours</button></div></div>
+        <div class="row" style="margin-bottom:0"><span class="label" id="lblT">Time of day</span>
+          <div class="pick two" role="group" aria-labelledby="lblT"><button data-time="std">After 2 PM</button><button data-time="am">10 AM–2 PM</button></div></div>
+      </div>
+      <div class="receipt" aria-live="polite">
+        <div class="ln"><span id="eLine"></span><span id="eSub"></span></div>
+        <div class="ln"><span id="eTaxL"></span><span id="eTax"></span></div>
+        <div class="tot"><span>Total</span><b id="eTotal"></b></div>
+        <div class="pp" id="ePP"></div>
+        <div class="dep">Due when you book: <b id="eDep"></b><br>That's two tickets with tax. Everyone else pays at check-in.</div>
+        <a href="https://gamenitelounge.com/memphis/book-now" data-otc="memphis.sessions" class="btn go">Pick a time</a>
+      </div>
+    </div>
+    <p class="small" style="margin-top:16px">The estimate should match checkout to the cent. <span class="tbd" title="Current site says '+ taxes and fees' with no fee amount. Drop the fee or show it here.">fee amount?</span> <span class="tbd" title="Publish reschedule/cancel/no-show rules.">cancellation policy</span></p>
+  </div>
+</section>
+
+<section class="pad band">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="label">What Memphis says</span><h2 class="h2">4.9 stars from<br>340 Google reviews</h2></div></div>
+    <div data-reviews></div>
+  </div>
+</section>
+
+<section class="band" style="background:var(--red);color:#fff">
+  <div class="wrap" style="padding-top:44px;padding-bottom:44px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <div><span class="sticker" style="margin-bottom:14px">Limited time</span><h2 class="h2" style="font-size:clamp(32px,4.4vw,56px)">The Christmas Special</h2><p style="max-width:560px">An hour of 15 holiday games. Book it on its own, or play it as the first hour of a 2- or 3-hour session.</p></div>
+    <a href="https://gamenitelounge.com/memphis/book-now" data-otc="memphis.sessions" class="btn">Book the special</a>
+  </div>
+</section>
+
+<section class="tiled pad band">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="label">The game menu</span><h2 class="h2">Fan favorites</h2></div><a href="../games/index.html" class="btn ink">All 70+ games →</a></div>
+    <div class="games-grid" id="gameTeaser"></div>
+  </div>
+</section>
+
+<section class="pad band">
+  <div class="wrap split" style="align-items:center">
+    <figure class="ph" style="aspect-ratio:16/9;border-radius:16px;box-shadow:8px 8px 0 var(--ink)">
+      <video controls preload="none" playsinline poster="https://gamenitelounge.com/wp-content/uploads/2025/07/Orientation-Cover.png" style="width:100%;height:100%;object-fit:cover;display:block"><source src="https://gamenitelounge.com/wp-content/uploads/2025/07/Game-Nite-Lounge-Orientation-Video-New.mp4" type="video/mp4"></video>
+      <figcaption style="top:12px;bottom:auto">Watch the 2-minute orientation</figcaption>
+    </figure>
+    <div>
+      <span class="label">Inside a lounge</span>
+      <h2 class="h2" style="font-size:clamp(34px,4.4vw,58px);margin:14px 0 22px">Ten themes. One huge game library.</h2>
+      <div class="boxes b2">
+        <div><span class="label">Screen</span><div class="big" style="font-size:20px">70" with show lights</div></div>
+        <div><span class="label">Table</span><div class="big" style="font-size:20px">Interactive, tap to play</div></div>
+        <div><span class="label">Remote</span><div class="big" style="font-size:20px">Pick games, replay rules</div></div>
+        <div><span class="label">Seats</span><div class="big" style="font-size:20px">A sectional for 2–8</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark pad band" id="food">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="label" style="color:var(--yellow)">Food &amp; drink</span><h2 class="h2">Snacks are part of the game</h2></div>
+      <div class="btn-row"><a class="btn go" href="../food/index.html">Full menu</a><a class="btn" href="../food/index.html#groups">Group packages</a></div></div>
+    <div class="boxes b4">
+      <div><span class="label" style="color:#a8a8a8">Kitchen</span><div class="big">Pizza</div></div>
+      <div><span class="label" style="color:#a8a8a8">Kitchen</span><div class="big">Pretzels &amp; churros</div></div>
+      <div><span class="label" style="color:#a8a8a8">Oven</span><div class="big">Fresh-baked cookies</div></div>
+      <div><span class="label" style="color:#a8a8a8">Bar &amp; café</span><div class="big">Coffee, soda, beer, wine &amp; cocktails</div></div>
+    </div>
+    <p class="small" style="margin-top:16px">The menus are images today. <span class="tbd" title="Rebuild as text with prices and dietary tags; add zero-proof list.">rebuild as text</span></p>
+  </div>
+</section>
+
+<section class="pad band" id="members">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="label">Memberships &amp; gifts</span><h2 class="h2">Make it a<br>regular thing</h2></div></div>
+    <div class="pkgs">
+      <div class="pkg"><span class="label">Annual membership</span><div class="name">Up to 4 players</div><div class="price">$49.99</div><div class="per">per year</div>
+        <ul><li>20% off admission for up to 4 players</li><li>A free house drink each visit, for everyone</li><li>Pays for itself in about two 2-hour visits</li></ul><a class="btn" href="#" data-otc="memphis.memberships">Join</a></div>
+      <div class="pkg feature"><span class="label">Annual membership</span><div class="name">Up to 8 players</div><div class="price">$99.99</div><div class="per">per year</div>
+        <ul><li>20% off admission for up to 8 players</li><li>A free house drink each visit, for everyone</li><li>Made for regular game-night crews</li></ul><a class="btn go" href="#" data-otc="memphis.memberships">Join</a></div>
+      <div class="pkg"><span class="label">Gift cards</span><div class="name">Give a game nite</div><div class="price">Any $</div><div class="per">digital or physical</div>
+        <ul><li>Delivered instantly, or on the date you choose</li><li>Email it or print it</li><li>Physical cards for pickup or by mail</li></ul><a class="btn" href="#" data-otc="memphis.giftcards">Buy a gift card</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="visit">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="label">House rules</span><h2 class="h2">Plan your visit</h2></div></div>
+    <div class="faq">
+      <details open><summary>When should we arrive?</summary><p>On your first visit, arrive 20 minutes early so everyone can register a coaster before your session timer starts. Returning players need about 10 minutes.</p></details>
+      <details><summary>Where do we park?</summary><p>There's street parking, and a public garage one block away.</p></details>
+      <details><summary>Is the lounge private?</summary><p>Yes. We take one booking per lounge, so it's only your group for the whole session.</p></details>
+      <details><summary>How does paying work?</summary><p>The organizer pays a two-ticket deposit to book. Everyone else pays for their own ticket by card when they arrive.</p></details>
+      <details><summary>What ages can play?</summary><p>Tickets are for ages 6 and up. Kids 5 and under get in free, but they need a ticket to register a coaster and play.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="bottombar" id="bottombar">
+  <div class="t"><span class="label">22 S. Cooper St · open daily</span><b>Lounges from $27.99 per person</b></div>
+  <a href="#rates" class="btn go">Book now</a>
+</div>
+<script src="../assets/demo-api.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
