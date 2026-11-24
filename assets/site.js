@@ -143,7 +143,7 @@ function decor(){
 function gameCard(g){
   return `<article class="gcard m-${g.mode}" id="${g.id}">
     <div class="gart">
-      ${g.img?`<img src="${ROOT}assets/games/${g.img}" alt="" onerror="this.remove()">`:""}
+      ${g.img?`<img src="${ROOT}assets/games/${g.img}" alt="">`:""}
       <span class="gmode">${MODES[g.mode]}</span>
       <h3 class="gtitle">${g.name}</h3>
     </div>
@@ -363,8 +363,9 @@ function initBuilder(){
       Final headcount is due 72 hours before the event. A W-9 and a certificate of insurance are available on request.</div>
       ${c.notes.map(n=>`<p class="muted">• ${n}</p>`).join("")}
       <p class="muted">Questions? Reply to your confirmation email or contact ${st.city==="seattle"?"seattle":"memphis"}@gamenitelounge.com.</p>
-      <script>onload=()=>print()<\/script></body></html>`);
+      </body></html>`);
     w.document.close();
+    w.focus(); setTimeout(()=>w.print(),300);   // no inline script in the new window, so it works under a strict CSP
   };
   $("#b-hold-open").onclick=()=>{const f=$("#b-hold");f.hidden=false;f.scrollIntoView({behavior:"smooth",block:"center"});$("#h-name").focus({preventScroll:true});};
   $("#b-pay").onclick=e=>{
@@ -510,4 +511,6 @@ function photos(){
   });
 }
 
+// Missing game stills fall back to the color block (no inline onerror handlers, so a strict CSP is fine)
+document.addEventListener("error",e=>{if(e.target.tagName==="IMG"&&e.target.closest(".gart"))e.target.remove();},true);
 coinify(); chrome(); decor(); initGames(); initPricing(); initForms(); photos(); initReviews(); initTV(); initBuilder(); initRSVP(); initOTC(); initLiveHold(); initLiveRSVP(); initAvailability();
