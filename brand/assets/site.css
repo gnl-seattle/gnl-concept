@@ -176,9 +176,7 @@ body.hide-notes .tbd{display:none}
 /* "See it before you book": bento grid of real clips */
 .moments{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:clamp(160px,17vw,250px);gap:14px}
 .moment{position:relative;margin:0;border:var(--rule);border-radius:16px;overflow:hidden;background:var(--ink);box-shadow:5px 5px 0 var(--ink)}
-.moment video{width:100%;height:100%;object-fit:cover;display:block;animation:drift 14s ease-in-out infinite alternate}
-.moment:nth-child(2n) video{animation-delay:-5s;animation-direction:alternate-reverse}
-@keyframes drift{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.12) translate(-2%,-1.5%)}}
+.moment video{width:100%;height:100%;object-fit:cover;display:block}
 .moment figcaption{position:absolute;left:10px;bottom:10px;right:10px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
 .moment figcaption b{font:900 clamp(15px,1.5vw,20px)/1 var(--display);text-transform:uppercase;background:var(--paper);color:var(--ink);border:var(--rule);padding:7px 9px;letter-spacing:-.01em}
 .moment figcaption span{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;padding:4px 7px}
