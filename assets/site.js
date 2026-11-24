@@ -479,7 +479,8 @@ function initOTC(){
 const REVIEWS = {
   rating:4.9, count:340, dist:{5:316,4:15,3:2,2:6,1:1}, asOf:"Nov 2026",
   url:"https://www.google.com/maps/place/Game+Nite+Lounge/@35.1358592,-89.9899811,17z",
-  themes:[["Helpful staff",28],["Themed rooms",3],["Cozy rooms",2],["Mini games",2]]
+  // Google's own "topics" for this place: phrases reviewers use, with review counts (read Nov 23, 2026).
+  themes:[["Helpful staff",28],["Variety of games",4],["Immersive experience",3],["Unique space",3],["Chill spot",3],["Themed rooms",3],["Cozy room",2],["Mini games",2]]
 };
 function initReviews(){
   $$("[data-reviews]").forEach(el=>{
@@ -487,10 +488,11 @@ function initReviews(){
     el.className="reviews";
     // No star-by-star breakdown: the average already reflects every review; quotes are hand-picked and labeled as such.
     el.innerHTML=`<div class="score-big"><span class="label">Memphis on Google</span><b>${r.rating}</b><div class="stars" aria-hidden="true">★★★★★</div><span class="small" style="color:var(--ink)">${r.count} reviews · ${r.asOf}</span></div>
-      <div class="quotes"><span class="label">A few favorites</span>
-        ${[1,2,3].map(()=>`<blockquote class="q"><p>Owner picks a short Google review here.</p><cite>First name, Google review</cite></blockquote>`).join("")}
-        <span class="tbd" title="Choose 2–3 real reviews (short, specific: staff, games, birthdays/team events). Use the reviewer's first name + last initial only.">add real quotes</span></div>
-      <div class="themes"><span class="label" style="margin-right:6px">What reviewers mention</span>${r.themes.map(([t,n])=>`<span>${t} · ${n}</span>`).join("")}<a class="rating-pill" style="margin-left:auto" href="${r.url}">Read them on Google →</a></div>`;
+      <div class="quotes"><span class="label">In guests' words · most-used phrases on Google</span>
+        <blockquote class="q big"><p>“${r.themes[0][0]}”</p><cite>Mentioned in ${r.themes[0][1]} reviews</cite></blockquote>
+        <div class="phrases">${r.themes.slice(1,5).map(([t,n])=>`<blockquote class="q"><p>“${t}”</p><cite>${n} reviews</cite></blockquote>`).join("")}</div>
+        <span class="tbd" title="Optional upgrade: pick 2–3 full Google reviews and ask the reviewers' permission (or use Google's Business Profile marketing kit), then show them here with first name + last initial.">full quotes optional</span></div>
+      <div class="themes"><span class="label" style="margin-right:6px">Phrases and counts from Google's review summary, ${r.asOf}</span><a class="rating-pill" style="margin-left:auto" href="${r.url}">Read all ${r.count} on Google →</a></div>`;
   });
   $$("[data-rating-pill]").forEach(el=>{el.className="rating-pill";el.href=REVIEWS.url;el.innerHTML=`★ ${REVIEWS.rating} · ${REVIEWS.count} Google reviews`;});
 }
