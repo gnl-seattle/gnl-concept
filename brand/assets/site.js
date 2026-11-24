@@ -95,7 +95,7 @@ function chrome(){
   const bar=document.createElement("header");
   bar.className="topbar";
   bar.innerHTML=`
-    <a class="cell logo" href="${ROOT}index.html" aria-label="Game Nite Lounge home"><img class="brandlogo" src="https://gamenitelounge.com/wp-content/uploads/2025/06/Game-Nite-Lounge-1-768x416.png" alt="Game Nite Lounge"></a>
+    <a class="cell logo" href="${ROOT}index.html" aria-label="Game Nite Lounge home"><img class="badge" src="https://gamenitelounge.com/wp-content/uploads/2025/06/Game-Nite-Lounge-Logo-150x150.png" srcset="https://gamenitelounge.com/wp-content/uploads/2025/06/Game-Nite-Lounge-Logo-300x300.png 2x" alt=""><span class="name"><span class="gn">Game Nite</span> <span class="lg">Lounge</span></span></a>
     <button class="cell menu" aria-expanded="false" aria-controls="toplinks">Menu</button>
     <ul class="links" id="toplinks">
       <li class="has-sub"><button class="cell sub-btn" aria-expanded="false" aria-controls="locsub"${inCity?' data-current':''}>Locations <span aria-hidden="true">▾</span></button>

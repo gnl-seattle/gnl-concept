@@ -18,10 +18,13 @@
 :focus-visible{outline-color:var(--neon)}
 
 /* Top bar: the real logo on a dark sign-board cell */
-.topbar .logo{background:var(--ink);padding:0 18px}
-.topbar .logo .brandlogo{height:50px;width:auto;display:block}
+.topbar .logo{background:var(--ink);padding:0 20px 0 12px;gap:12px}
+.topbar .logo .badge{width:46px;height:46px;display:block;filter:drop-shadow(0 0 8px rgba(50,182,197,.35))}
+.topbar .logo .name{display:flex;align-items:baseline;gap:.35em;white-space:nowrap;text-transform:none;letter-spacing:0}
+.topbar .logo .gn{font:300 22px/1 "Tourney",var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--neon);text-shadow:0 0 10px rgba(50,182,197,.6)}
+.topbar .logo .lg{font:400 27px/1 var(--script);color:var(--yellow);text-shadow:0 0 10px rgba(233,129,17,.55);transform:translateY(2px)}
 .topbar .cta:hover{background:#f29a3a}
-@media(max-width:560px){.topbar .logo .brandlogo{height:42px}}
+@media(max-width:1180px) and (min-width:1021px){.topbar .logo .gn{font-size:18px}.topbar .logo .lg{font-size:22px}}
 
 /* Hero: the lounge at night, lit like the neon sign */
 .hero{background:
