@@ -86,29 +86,49 @@ function coinify(){
 function chrome(){
   const cta = {
     seattle:["Join waitlist","#waitlist"],
-    memphis:["Book now","#rates"],
+    memphis:["Book","#rates"],
     events:["Get a quote","#quote"],
-    birthdays:["Plan a party","#party-form"],
-    games:["Book a lounge",ROOT+"memphis/index.html#rates"]
-  }[PAGE] || ["Book Memphis",ROOT+"memphis/index.html#rates"];
+    birthdays:["Plan a party","#party-form"]
+  }[PAGE] || ["Book","#book"];
   const link=(href,label,key)=>`<li><a class="cell" href="${ROOT}${href}"${PAGE===key?' aria-current="page"':''}>${label}</a></li>`;
+  const inCity=PAGE==="seattle"||PAGE==="memphis";
   const bar=document.createElement("header");
   bar.className="topbar";
   bar.innerHTML=`
     <a class="cell logo" href="${ROOT}index.html" aria-label="Game Nite Lounge home"><span class="coin" aria-hidden="true"><span>G</span></span><span class="name">Game Nite Lounge</span></a>
     <button class="cell menu" aria-expanded="false" aria-controls="toplinks">Menu</button>
     <ul class="links" id="toplinks">
+      <li class="has-sub"><button class="cell sub-btn" aria-expanded="false" aria-controls="locsub"${inCity?' data-current':''}>Locations <span aria-hidden="true">▾</span></button>
+        <ul class="sub" id="locsub">
+          <li><a href="${ROOT}memphis/index.html"${PAGE==="memphis"?' aria-current="page"':''}><b>Memphis</b><span>Open daily · Cooper-Young</span></a></li>
+          <li><a href="${ROOT}seattle/index.html"${PAGE==="seattle"?' aria-current="page"':''}><b>Seattle</b><span>Opening 2027 · Join the waitlist</span></a></li>
+        </ul></li>
       ${link("games/index.html","Games","games")}
-      ${link("events/index.html","Teams","events")}
+      ${link("events/index.html","Team events","events")}
       ${link("birthdays/index.html","Birthdays","birthdays")}
       ${link("food/index.html","Food","food")}
-      ${link("seattle/index.html","Seattle","seattle")}
-      ${link("memphis/index.html","Memphis","memphis")}
     </ul>
-    <a class="cell cta" href="${cta[1]}">${cta[0]}</a>`;
+    <a class="cell cta" href="${cta[1]}"${cta[1]==="#book"?" data-book":""}>${cta[0]}</a>`;
   document.body.prepend(bar);
   const mb=$(".menu",bar), ul=$("#toplinks",bar);
   mb.onclick=()=>{const o=ul.classList.toggle("open");mb.setAttribute("aria-expanded",o);mb.textContent=o?"Close":"Menu";};
+  const sb=$(".sub-btn",bar), sub=$("#locsub",bar);
+  const setSub=o=>{sub.classList.toggle("open",o);sb.setAttribute("aria-expanded",o);};
+  sb.onclick=e=>{e.stopPropagation();setSub(!sub.classList.contains("open"));};
+  document.addEventListener("click",e=>{if(!e.target.closest(".has-sub")) setSub(false);});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){setSub(false);}});
+
+  // "Book" picker: one button, two cities
+  const dlg=document.createElement("dialog");
+  dlg.className="book-pick"; dlg.setAttribute("aria-labelledby","bookPickTitle");
+  dlg.innerHTML=`<form method="dialog"><button class="x" aria-label="Close">×</button></form>
+    <span class="label">Pick your city</span>
+    <h2 id="bookPickTitle">Where are you playing?</h2>
+    <a class="city c-mem" href="${ROOT}memphis/index.html#rates"><b>Memphis</b><span>Open daily from 10 AM. Grab a lounge tonight.</span><i>Book a lounge →</i></a>
+    <a class="city c-sea" href="${ROOT}seattle/index.html#waitlist"><b>Seattle</b><span>Opening 2027. Get first pick of opening-week nights.</span><i>Join the waitlist →</i></a>`;
+  document.body.append(dlg);
+  dlg.addEventListener("click",e=>{if(e.target===dlg) dlg.close();});
+  document.addEventListener("click",e=>{const b=e.target.closest("[data-book]"); if(!b||typeof dlg.showModal!=="function") return; e.preventDefault(); dlg.showModal();});
 
   const f=document.createElement("footer");
   f.innerHTML=`<div class="wrap">
