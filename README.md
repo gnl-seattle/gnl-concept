@@ -6,4 +6,4 @@ A **concept redesign and booking-integration prototype**, made for discussion. I
 - The Off the Couch integration plan is at `/otc-plan/`.
 - Prices, packages and menu items are placeholders.
 
-Live demo: https://hosthavenstays.github.io/gnl-concept/
+Live demo: https://gnl-seattle.github.io/gnl-concept/
