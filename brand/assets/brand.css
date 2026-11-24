@@ -1,0 +1,69 @@
+/* GNL brand preview: the real Game Nite Lounge logo and its neon-sign colours
+   (teal #32b6c5 + orange #e98111 from gamenitelounge.com), layered over site.css.
+   Loaded only in the brand-preview build. The main site is untouched. */
+:root{
+  --ink:#0f1a22;            /* lounge-night navy-black, the logo's natural background */
+  --paper:#fffaf3;          /* warm, fireplace-lit white */
+  --tile:#eaf5f6;           /* teal-tinted tile */
+  --neon:#32b6c5;           /* logo teal: accents on dark, fills with dark text */
+  --yellow:#e98111;         /* logo orange: the primary "Book" colour, dark text on it */
+  --teal:#137f8c;           /* deep teal: white text passes AA */
+  --red:#b84f08;            /* burnt orange: white text passes AA */
+  --purple:#1f4f6b;         /* deep night blue */
+  --pink:#f6b26b;           /* peach, dark text */
+  --blue:#1a6f7e;           /* dark teal */
+  --grey:#56606a;
+  --script:"Yellowtail","Brush Script MT",cursive;
+}
+:focus-visible{outline-color:var(--neon)}
+
+/* Top bar: the real logo on a dark sign-board cell */
+.topbar .logo{background:var(--ink);padding:0 18px}
+.topbar .logo .brandlogo{height:50px;width:auto;display:block}
+.topbar .cta:hover{background:#f29a3a}
+@media(max-width:560px){.topbar .logo .brandlogo{height:42px}}
+
+/* Hero: the lounge at night, lit like the neon sign */
+.hero{background:
+  radial-gradient(55% 75% at 88% 18%,rgba(50,182,197,.22),transparent 62%),
+  radial-gradient(45% 65% at 6% 100%,rgba(233,129,17,.2),transparent 60%),
+  var(--ink);color:#fff;border-bottom-color:var(--ink)}
+.hero .kicker{color:var(--neon)}
+.hero .lede{color:#cfd9de}
+.hero h1 .line:nth-child(1){color:var(--neon);text-shadow:0 0 22px rgba(50,182,197,.55)}
+.hero h1 .line:nth-child(3){font-family:var(--script);font-weight:400;text-transform:none;letter-spacing:0;
+  color:var(--yellow);font-size:1.12em;line-height:1.05;text-shadow:0 0 22px rgba(233,129,17,.6)}
+.hero .sticker{background:var(--neon);color:var(--ink);border-color:#fff;box-shadow:3px 3px 0 var(--yellow)}
+.hero .coin{border-color:#fff}
+.hero .btn{border-color:#fff;box-shadow:4px 4px 0 var(--neon)}
+.hero .btn:hover{box-shadow:6px 6px 0 var(--neon)}
+.hero .rating-pill{border-color:#fff}
+.hero .tv .set{border-color:#2c3d49;box-shadow:0 0 0 1px rgba(50,182,197,.35),0 0 46px rgba(50,182,197,.28),8px 8px 0 var(--yellow)}
+.hero .tv .legs i{background:#2c3d49}
+
+/* Ticker dots and the "How it works" panels in logo tints */
+.ticker span::after{background:var(--yellow)}
+.ticker span:nth-child(3n+2)::after{background:var(--neon)}
+.ticker span:nth-child(3n)::after{background:var(--pink)}
+.dark .label[style*="yellow"]{color:var(--neon)!important}
+.strip .panel:nth-child(1){background:#fff}
+.strip .panel:nth-child(2){background:#fdeedd}
+.strip .panel:nth-child(3){background:#e2f4f6}
+.strip .panel:nth-child(4){background:#fbe2c6}
+
+/* Buttons and shadows */
+.btn.ink{box-shadow:4px 4px 0 var(--neon)}
+.bottombar .btn{box-shadow:3px 3px 0 var(--neon)}
+.bottombar .t .label{color:var(--neon)}
+.tv .set{box-shadow:8px 8px 0 var(--neon)}
+.tv .screen{background:var(--purple)}
+
+/* Footer: the full neon sign instead of the type wordmark */
+footer .word{font-size:0;line-height:0;margin-bottom:48px}
+footer .word img{width:min(460px,80vw);height:auto}
+
+.hero figcaption{color:var(--ink)}
+.rate[aria-pressed=true] .small{color:var(--ink)}
+
+/* Book picker */
+.book-pick .c-sea{background:#dff3f5}
