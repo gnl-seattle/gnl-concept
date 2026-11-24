@@ -497,6 +497,28 @@ function initReviews(){
   $$("[data-rating-pill]").forEach(el=>{el.className="rating-pill";el.href=REVIEWS.url;el.innerHTML=`★ ${REVIEWS.rating} · ${REVIEWS.count} Google reviews`;});
 }
 
+/* "See it before you book": short muted loops cut from the real Memphis trailer (start second + length).
+   Swap TRAILER/MOMENTS for purpose-shot clips later; the layout stays the same. */
+const TRAILER="https://gamenitelounge.com/wp-content/uploads/2025/06/gnltrailer-1.mp4";
+// Each tile freezes on a frame checked by eye (the trailer cuts fast, so playing on would drift off the caption).
+const MOMENTS=[
+  {t:47.9, cap:"The table is the game board", sub:"Tap your coaster to buzz in"},
+  {t:63.0, cap:"Pick your coaster",          sub:"500+ game pieces on the wall"},
+  {t:27.7, cap:"Your couch. Your show.",      sub:"Private lounges for 2–8"},
+  {t:58.0, cap:"10 themed lounges",           sub:"This one has a fireplace"},
+  {t:52.9, cap:"Just your crew",              sub:"Every lounge is private"},
+  {t:22.7, cap:"Pizza's part of the game",    sub:"Delivered to your lounge"}
+];
+function initMoments(){
+  const el=$("[data-moments]"); if(!el) return;
+  el.innerHTML=MOMENTS.map((m,i)=>`<figure class="moment m${i}">
+      <video muted playsinline preload="auto" data-src="${TRAILER}#t=${m.t}" aria-hidden="true" tabindex="-1"></video>
+      <figcaption><b>${m.cap}</b><span>${m.sub}</span></figcaption></figure>`).join("");
+  // load each frame only when it gets close to the screen
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ const v=e.target; v.src=v.dataset.src; io.unobserve(v);} }),{rootMargin:"400px"});
+  $$("video",el).forEach(v=>io.observe(v));
+}
+
 /* Hero footage: muted loop with a sound toggle; paused for reduced-motion users */
 function initTV(){
   const v=$(".tv video"); if(!v) return;
@@ -515,4 +537,4 @@ function photos(){
 
 // Missing game stills fall back to the color block (no inline onerror handlers, so a strict CSP is fine)
 document.addEventListener("error",e=>{if(e.target.tagName==="IMG"&&e.target.closest(".gart"))e.target.remove();},true);
-coinify(); chrome(); decor(); initGames(); initPricing(); initForms(); photos(); initReviews(); initTV(); initBuilder(); initRSVP(); initOTC(); initLiveHold(); initLiveRSVP(); initAvailability();
+coinify(); chrome(); decor(); initGames(); initPricing(); initForms(); photos(); initReviews(); initTV(); initMoments(); initBuilder(); initRSVP(); initOTC(); initLiveHold(); initLiveRSVP(); initAvailability();
